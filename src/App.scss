@@ -1,0 +1,36 @@
+.flex {
+  display: flex;
+}
+
+.dropdown, .toggle {
+  font-size: 13px;
+  line-height: 29px;
+}
+
+.dropdown select{
+  background-image: url('./assets/images/chevron-down.svg');
+  background-position: 97% center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  border-radius: 3rem;
+  font-size: 11px;
+  font-weight: 600;
+  height: 1.5rem;
+  padding: 0.5rem;
+}
+
+.tag--toxic {
+  background-color: #FFBC00;
+  color: #364141;
+}
+
+.tag--non-toxic {
+  background-color: #006B40;
+  color: #fff;
+}
