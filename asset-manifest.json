@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/can-my-cat-eat-that/static/css/main.b72b43b9.chunk.css",
+    "main.js": "/can-my-cat-eat-that/static/js/main.6a5bfab4.chunk.js",
+    "main.js.map": "/can-my-cat-eat-that/static/js/main.6a5bfab4.chunk.js.map",
+    "runtime-main.js": "/can-my-cat-eat-that/static/js/runtime-main.af362da2.js",
+    "runtime-main.js.map": "/can-my-cat-eat-that/static/js/runtime-main.af362da2.js.map",
+    "static/js/2.b5eb93bc.chunk.js": "/can-my-cat-eat-that/static/js/2.b5eb93bc.chunk.js",
+    "static/js/2.b5eb93bc.chunk.js.map": "/can-my-cat-eat-that/static/js/2.b5eb93bc.chunk.js.map",
+    "static/js/3.c0942800.chunk.js": "/can-my-cat-eat-that/static/js/3.c0942800.chunk.js",
+    "static/js/3.c0942800.chunk.js.map": "/can-my-cat-eat-that/static/js/3.c0942800.chunk.js.map",
+    "index.html": "/can-my-cat-eat-that/index.html",
+    "static/css/main.b72b43b9.chunk.css.map": "/can-my-cat-eat-that/static/css/main.b72b43b9.chunk.css.map",
+    "static/js/2.b5eb93bc.chunk.js.LICENSE.txt": "/can-my-cat-eat-that/static/js/2.b5eb93bc.chunk.js.LICENSE.txt",
+    "static/media/cat-icon.9a7a4317.svg": "/can-my-cat-eat-that/static/media/cat-icon.9a7a4317.svg",
+    "static/media/cat-left.77af5c67.png": "/can-my-cat-eat-that/static/media/cat-left.77af5c67.png",
+    "static/media/cat-right.b3417595.png": "/can-my-cat-eat-that/static/media/cat-right.b3417595.png",
+    "static/media/App.scss": "/can-my-cat-eat-that/static/media/chevron-down.ac0ee3db.svg",
+    "static/media/heart.61417605.svg": "/can-my-cat-eat-that/static/media/heart.61417605.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.af362da2.js",
+    "static/js/2.b5eb93bc.chunk.js",
+    "static/css/main.b72b43b9.chunk.css",
+    "static/js/main.6a5bfab4.chunk.js"
+  ]
+}
