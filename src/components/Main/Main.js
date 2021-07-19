@@ -25,7 +25,7 @@ const Main = ({ searchInput }) => {
   };
 
   useEffect(() => {
-    fetch("../data/plants.json", {
+    fetch("/data/plants.json", {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
