@@ -1,5 +1,5 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import React, { useEffect, useRef, useState } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import React, { useState } from "react";
 import "./App.scss";
 import PageHeader from "./components/PageHeader";
 import Hero from "./components/Hero";
@@ -7,7 +7,7 @@ import Main from "./components/Main";
 
 const App = () => {
   const [searchInput, setSearchInput] = useState("");
-  
+
   const setProp = (prop) => {
     setSearchInput(prop);
   };
@@ -18,14 +18,9 @@ const App = () => {
         <PageHeader />
         <Hero setProp={setProp} />
         <main>
-          <Switch>
-            <Route path="/syd/can-my-cat-eat-that/:plantName">
-              <h1>Plant Name!</h1>
-            </Route>
-            <Route exact path="/syd/can-my-cat-eat-that">
-              <Main searchInput={searchInput} />
-            </Route>
-          </Switch>
+          <Route exact path="/">
+            <Main searchInput={searchInput} />
+          </Route>
         </main>
       </div>
     </Router>

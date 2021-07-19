@@ -61,16 +61,30 @@ const Card = ({
           ) : (
             <span className="tag tag--non-toxic">Non-toxic</span>
           )}
+          {!list && (
+            <div className="tag__wrapper">
+              <Heart
+                className="tag--favorite"
+                onClick={(e) => handleClick(e)}
+              />
+             {list && <span className="tag--favorite-text">Favorite</span>} 
+            </div>
+          )}
         </div>
         {list && (
-          <p className="card__list-description">
-            {truncateString(details, 135)}
-          </p>
+          <>
+            <p className="card__list-description">
+              {truncateString(details, 135)}
+            </p>
+            <div className={cx("tag__wrapper", {"favorite": !list})}>
+              <Heart
+                className="tag--favorite"
+                onClick={(e) => handleClick(e)}
+              />
+              <span className="tag--favorite-text">Favorite</span>
+            </div>
+          </>
         )}
-        <div className="tag__wrapper">
-          <Heart className="tag--favorite" onClick={(e) => handleClick(e)} />
-          <span className="tag--favorite-text">Favorite</span>
-        </div>
       </li>
     </div>
   );

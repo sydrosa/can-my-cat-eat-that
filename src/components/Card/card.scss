@@ -22,7 +22,7 @@
   padding: 1rem 0;
 
   @media (min-width: 1056px) {
-    grid-template-columns: 11.25rem 7.5rem 1fr 4.375rem;
+    grid-template-columns: 11.25rem 7.5rem 1fr 6.375rem;
     grid-template-areas: "details tag description favorite";
   }
 }
@@ -93,12 +93,16 @@
 }
 
 .tag__wrapper {
-  grid-area: favorite;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
+    display: flex;
+    // grid-template-columns: 1fr;
+    align-items: center;
+    // flex-direction: row;
 }
 
 .selected {
   fill: red;
+}
+
+.favorite {
+    grid-area: favorite;
 }
