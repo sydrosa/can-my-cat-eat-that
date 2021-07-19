@@ -127,7 +127,7 @@ const Main = ({ searchInput }) => {
                 name="view"
                 value="card-view"
                 onClick={(e) => setViewOptions(e.target.value)}
-                checked
+                defaultChecked
               />
               <label
                 className={cx(

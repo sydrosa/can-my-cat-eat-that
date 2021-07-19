@@ -44,7 +44,8 @@ const Card = ({
         <div className={cx({ "flex card__wrapper": list })}>
           <img
             className={cx("card__img", { "card__list-img": list })}
-            src={img}
+            src={`${img}`}
+            // src={require(`${img}`)}
             alt={imgAlt}
           />
           {list && (

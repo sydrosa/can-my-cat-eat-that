@@ -18,7 +18,7 @@ const App = () => {
         <PageHeader />
         <Hero setProp={setProp} />
         <main>
-          <Route exact path="/">
+          <Route exact path="/can-my-cat-eat-that">
             <Main searchInput={searchInput} />
           </Route>
         </main>
