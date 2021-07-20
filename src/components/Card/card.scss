@@ -1,38 +1,41 @@
+@import "../../App.scss";
+
 .card {
   height: 20rem;
   border: 1px solid #dee1e1;
-  background-color: #fff;
-  border-radius: 8px;
-  color: #273333;
-//   cursor: pointer;
+  background-color: $neutral-10;
+  border-radius: 0.5rem;
+  color: $neutral-40;
   position: relative;
 }
 
 .card--list-item {
-  //   height: 4rem;
   height: 100%;
   display: grid;
   align-items: center;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: "details tag description favorite";
-  //   justify-content: space-between;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
   border-radius: 0;
   border: none;
   border-top: 1px solid #dee1e1;
   padding: 1rem 0;
 
+  @media (min-width: 672px) {
+    grid-template-areas: "details tag description favorite";
+  }
+
   @media (min-width: 1056px) {
     grid-template-columns: 11.25rem 7.5rem 1fr 6.375rem;
-    // grid-template-areas: "details tag description favorite";
   }
 }
 
 .card__content {
-  padding: 0 1rem 0 1rem;
+  padding: 0;
   align-items: center;
-  justify-content: space-between;
-  cursor: default;
-  grid-area: tag;
+
+  @media (min-width: 672px) {
+    padding: 0 1rem 0 1rem;
+  }
 }
 
 .card__img {
@@ -58,11 +61,16 @@
 .card__title {
   font-size: 18px;
   font-weight: 500;
-  //   margin: 0;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
 
 .card__title--list {
   margin: 0;
+  text-align: left;
 }
 
 .card__subtitle {
@@ -73,12 +81,15 @@
 
 .card__wrapper {
   align-items: center;
-  grid-area: details;
 }
 
 .card__list-description {
-  width: 100%;
   grid-area: description;
+  width: 100%;
+
+  @media (min-screen: 672px) {
+    grid-area: none;
+  }
 }
 
 .tag--favorite {
@@ -89,21 +100,37 @@
 }
 
 .tag--favorite-text {
-    font-size: 11px;
-    font-weight: 600;
+  font-size: 11px;
+  font-weight: 600;
 }
 
 .tag__wrapper {
-    display: flex;
-    // grid-template-columns: 1fr;
-    align-items: center;
-    // flex-direction: row;
+  display: flex;
+  align-items: center;
 }
 
 .selected {
-  fill: red;
+  fill: $accent-03;
 }
 
 .favorite {
-    grid-area: favorite;
+  grid-area: favorite;
+
+  @media (min-screen: 672px) {
+    grid-area: none;
+  }
+}
+
+.card__grid-content {
+  padding: 0 1rem 0 1rem;
+  justify-content: space-between;
+}
+
+.card__list-row {
+  margin: 0;
+  padding: inherit;
+  @media (max-width: 672px) {
+    grid-column: 1 / -1;
+    padding: 0;
+  }
 }

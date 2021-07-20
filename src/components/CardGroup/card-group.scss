@@ -1,19 +1,19 @@
 .card-group-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2rem;
 
-    @media (min-width: 672px) {
-        grid-template-columns: 1fr 1fr;
-      }
+  @media (min-width: 672px) {
+    grid-template-columns: 1fr 1fr;
+  }
 
-    @media (min-width: 1056px) {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-      }
+  @media (min-width: 1056px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
 
 .card-group-container--list {
-    display: flex;
-    flex-direction: column;
-    grid-gap: 0;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 0;
 }

@@ -1,21 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Card from "../Card";
 import Modal from "../Modal";
 import cx from "classnames";
 import "./card-group.scss";
 
-const CardGroup = ({ data, listView, toxicity }) => {
+const CardGroup = ({ data, listView }) => {
   const [open, setOpen] = useState(false);
   const [selectedPlant, setSelectedPlant] = useState();
-  const [plants, setPlants] = useState();
 
   const toggleModal = () => {
     setOpen(!open);
   };
 
   const handleClick = (e) => {
-    console.log(e);
     toggleModal();
     setSelectedPlant(e);
   };
@@ -53,17 +51,6 @@ const CardGroup = ({ data, listView, toxicity }) => {
     },
     inactive: { scale: 1 },
   };
-
-  useEffect(() => {
-    if (data && toxicity === "toxic") {
-      setPlants(data.filter((plant) => plant.toxicity));
-    }
-    else if (data && toxicity === "non-toxic") {
-      setPlants(data.filter((plant) => !plant.toxicity));
-    } else {
-      setPlants(data);
-    }
-  }, [data, toxicity]);
 
   return (
     <>

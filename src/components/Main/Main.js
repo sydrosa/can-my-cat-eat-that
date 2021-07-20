@@ -2,22 +2,17 @@ import React, { useState, useEffect } from "react";
 import cx from "classnames";
 import CardsSolid from "../../assets/images/cards-solid.png";
 import List from "../../assets/images/list.png";
-import { AnimatePresence } from "framer-motion";
 import CardGroup from "../CardGroup/CardGroup";
 import "./main.scss";
 
 const Main = ({ searchInput }) => {
   const [plants, setPlants] = useState();
   const [selectedPlants, setSelectedPlants] = useState();
-  const [toxicPlants, setToxicPlants] = useState();
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [viewOptions, setViewOptions] = useState("card-view");
   const [viewToxicity, setViewToxicity] = useState("");
 
-  const preFix = 'can-my-cat-eat-that/'
-
   const handleChange = (e) => {
-    //   console.log(plants.filter((plant) => plant))
     setViewToxicity(e.target.value);
     if (e.target.value === "non-toxic") {
       setSelectedPlants(plants.filter((plant) => !plant.toxicity));
@@ -27,7 +22,7 @@ const Main = ({ searchInput }) => {
   };
 
   useEffect(() => {
-    fetch(`${preFix}data/plants.json`, {
+    fetch(`./data/plants.json`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -51,11 +46,11 @@ const Main = ({ searchInput }) => {
   }, [plants, searchInput]);
 
   return (
-    <div className="main__container" style={{ padding: "22px 32px" }}>
+    <div className="main__container">
       <div className="flex filters">
         <div className="flex filters--left">
           <div className="toggle filters__toggle">
-            <label for="fieldset1">Category</label>
+            <label htmlFor="fieldset1">Category</label>
             <fieldset id="fieldset1" className="flex">
               <input
                 className="filters__toggle-input"
@@ -73,7 +68,7 @@ const Main = ({ searchInput }) => {
                     "filters__toggle-label--active": selectedCategory === "all",
                   }
                 )}
-                for="contactChoice1"
+                htmlFor="contactChoice1"
               >
                 All plants
               </label>
@@ -93,14 +88,14 @@ const Main = ({ searchInput }) => {
                       selectedCategory === "favorites",
                   }
                 )}
-                for="contactChoice2"
+                htmlFor="contactChoice2"
               >
                 Favorites
               </label>
             </fieldset>
           </div>
           <div className="dropdown filters__dropdown">
-            <label for="toxicity" className="flex">
+            <label htmlFor="toxicity" className="flex">
               Toxicity
             </label>
             <select
@@ -111,7 +106,7 @@ const Main = ({ searchInput }) => {
                 handleChange(e);
               }}
             >
-              <option value="Select">Select an option</option>
+              <option value="Select">All</option>
               <option value="toxic">Toxic</option>
               <option value="non-toxic">Non-toxic</option>
             </select>
@@ -119,7 +114,7 @@ const Main = ({ searchInput }) => {
         </div>
         <div className="filters--right">
           <div className="toggle views__toggle">
-            <label for="fieldset-2">View options</label>
+            <label htmlFor="fieldset-2">View options</label>
             <fieldset id="fieldset-2" className="flex">
               <input
                 type="image"
@@ -137,7 +132,7 @@ const Main = ({ searchInput }) => {
                   { "filters__toggle-label--active": viewOptions === "tile" }
                 )}
                 style={{ display: "none" }}
-                for="card-view"
+                htmlFor="card-view"
               >
                 Card view
               </label>
@@ -156,7 +151,7 @@ const Main = ({ searchInput }) => {
                   { "filters__toggle-label--active": viewOptions === "list" }
                 )}
                 style={{ display: "none" }}
-                for="list-view"
+                htmlFor="list-view"
               >
                 List view
               </label>
@@ -164,17 +159,13 @@ const Main = ({ searchInput }) => {
           </div>
         </div>
       </div>
-      {
-        plants && (
-          //   <AnimatePresence>
-          <CardGroup
-            data={selectedPlants || plants}
-            listView={viewOptions === "list"}
-            toxicity={viewToxicity}
-          />
-        )
-        //   </AnimatePresence>
-      }
+      {plants && (
+        <CardGroup
+          data={selectedPlants || plants}
+          listView={viewOptions === "list"}
+          toxicity={viewToxicity}
+        />
+      )}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import cx from "classnames";
 import { ReactComponent as Heart } from "../../assets/images/heart.svg";
 
@@ -10,13 +10,11 @@ const Card = ({
   name,
   scientificName,
   details,
-  //   favorite,
   toxicity,
   list,
   onClick,
 }) => {
   const [favorited, setFavorited] = useState(false);
-  const [favorites, setFavorites] = useState([]);
 
   const truncateString = (str, num) => {
     if (str.length > num) {
@@ -27,65 +25,82 @@ const Card = ({
   };
 
   const handleClick = (e) => {
-    // console.log(e.target);
     setFavorited(!favorited);
-    updateClassName(e.target);
-    // favorite ? tag.classList.add("selected") : tag.classList.remove("selected")
-
-    // const faveClasses = e.target.classList;
-    // faveClasses.contains("selected")
-    //   ? faveClasses.remove("selected")
-    //   : faveClasses.add("selected");
+    updateClassName(e.currentTarget);
   };
 
   const updateClassName = (tag) => {
-    favorited
-      ? tag.classList.add("selected")
-      : tag.classList.remove("selected");
+    !favorited
+      ? tag.setAttribute("fill", "#ff0000")
+      : tag.setAttribute("fill", "#fff");
   };
-
-  useEffect(() => {
-    console.log(favorited);
-  }, [favorited]);
 
   return (
     <div>
-      <li className={cx("card", { "card--list-item": list })} tabIndex="0">
-        <div className={cx({ "flex card__wrapper": list })}>
+      <li className={cx("card", { "card--list-item": list })}>
+        <div
+          className={cx(
+            { "flex card__wrapper": list },
+            { "card__list-row": list }
+          )}
+        >
           <img
             className={cx("card__img", { "card__list-img": list })}
             src={`${img}`}
             alt={imgAlt}
             onClick={onClick}
             onKeyPress={onClick}
+            tabIndex="0"
           />
           {list && (
             <div className="card__list-header">
-              <p className="card__title card__title--list">{name}</p>
+              <button
+                className="card__title card__title--list"
+                onClick={onClick}
+                onKeyPress={onClick}
+              >
+                {name}
+              </button>
               <p className="card__subtitle">{scientificName}</p>
             </div>
           )}
         </div>
-        <div className="flex card__content">
-          {!list && <p className="card__title">{name}</p>}
-          {toxicity ? (
-            <span className="tag tag--toxic">Toxic</span>
-          ) : (
-            <span className="tag tag--non-toxic">Non-toxic</span>
-          )}
+        <div
+          className={cx("flex card__content", { "card__grid-content": !list })}
+        >
           {!list && (
-            <div className="tag__wrapper">
-              <Heart
-                className="tag--favorite"
-                onClick={(e) => handleClick(e)}
-              />
-              {list && <span className="tag--favorite-text">Favorite</span>}
-            </div>
+            <button
+              className="card__title"
+              onClick={onClick}
+              onKeyPress={onClick}
+            >
+              {name}
+            </button>
           )}
+          <div className={cx("flex", { tags: !list })}>
+            {toxicity ? (
+              <span className="tag tag--toxic">Toxic</span>
+            ) : (
+              <span className="tag tag--non-toxic">Non-toxic</span>
+            )}
+            {!list && (
+              <div className={cx("tag__wrapper")}>
+                <Heart
+                  className="tag--favorite"
+                  onClick={(e) => handleClick(e)}
+                />
+                {list && <span className="tag--favorite-text">Favorite</span>}
+              </div>
+            )}
+          </div>
         </div>
         {list && (
           <>
-            <p className="card__list-description">
+            <p
+              className={cx("card__list-description", {
+                "card__list-row": list,
+              })}
+            >
               {truncateString(details, 135)}
             </p>
             <div className={cx("tag__wrapper", { favorite: !list })}>

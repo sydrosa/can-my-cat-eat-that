@@ -1,14 +1,32 @@
+//variables
+
+//colors
+$blue-10: #e9f8ff; //lightest
+$blue-20: #002138; //darkest
+
+$neutral-10: #fff; //lightest
+$neutral-20: #b0b6b7;
+$neutral-30: #364141;
+$neutral-40: #273333;
+$neutral-50: #000; //darkest
+
+$accent-01: #006b40; //green
+$accent-02: #ffbc00; //yellow
+$accent-03: #c63434;
+
+//global classes
 .flex {
   display: flex;
 }
 
-.dropdown, .toggle {
+.dropdown,
+.toggle {
   font-size: 13px;
   line-height: 29px;
 }
 
-.dropdown select{
-  background-image: url('./assets/images/chevron-down.svg');
+.dropdown select {
+  background-image: url("./assets/images/chevron-down.svg");
   background-position: 97% center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -26,11 +44,17 @@
 }
 
 .tag--toxic {
-  background-color: #FFBC00;
-  color: #364141;
+  background-color: $accent-02;
+  color: $neutral-30;
 }
 
 .tag--non-toxic {
-  background-color: #006B40;
-  color: #fff;
+  background-color: $accent-01;
+  color: $neutral-10;
+}
+
+.tags {
+  display: grid;
+  grid-template-columns: max-content min-content;
+  grid-gap: 0.5rem;
 }

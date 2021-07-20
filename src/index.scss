@@ -1,3 +1,6 @@
+@import './App.scss';
+
+// global resets
 *,
 *::before,
 *::after {
@@ -6,6 +9,7 @@
 
 body {
   margin: 0;
+  color: $neutral-40;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -30,9 +34,7 @@ legend {
 }
 
 select {
-  // A reset of styles, including removing the default dropdown arrow
   appearance: none;
-  // Additional resets for further consistency
   background-color: transparent;
   border: none;
   padding: 0 1em 0 0;

@@ -1,3 +1,5 @@
+@import "../../App.scss";
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -11,7 +13,7 @@
 .modal {
   width: 75%;
   height: auto;
-  background-color: white;
+  background-color: $neutral-10;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -23,7 +25,6 @@
 }
 
 .modal-section {
-  // height: 1px;
   padding: 1.5rem 0;
   width: 100%;
   border-bottom: 1px solid #dee1e1;
@@ -46,6 +47,9 @@
 
 .modal__header {
   padding-top: 0;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
 }
 
 .modal__title {
@@ -58,20 +62,15 @@
   font-style: italic;
 }
 
-.modal__body {
-  //   padding: 1rem;
-}
-
 .modal__img {
-  //   max-width: 16rem;
   max-height: 16rem;
   width: 100%;
 }
 
 .modal__button {
   width: 100%;
-  background-color: #002138;
-  color: white;
+  background-color: $blue-20;
+  color: $neutral-10;
   height: 5rem;
 }
 
@@ -86,4 +85,20 @@
 
 .modal-section__list {
   list-style-type: initial;
+}
+
+.modal-section__list--care {
+  list-style-type: none;
+  position: relative;
+  left: -2rem;
+}
+
+.modal-section__care-list-item {
+  padding: 0.3rem 0 0.5rem 2rem;
+  background: url(../../assets/images/light.svg) no-repeat;
+}
+
+.modal-section__care-list-item--alt {
+  background: url(../../assets/images/water.svg) no-repeat;
+  background-position: 0.4rem 0.25rem;
 }

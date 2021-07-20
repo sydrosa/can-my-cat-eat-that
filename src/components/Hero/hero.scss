@@ -1,11 +1,13 @@
+@import "../../App.scss";
+
 .hero {
-  background-color: #e9f8ff;
+  background-color: $blue-10;
   display: flex;
   height: 20rem;
   width: 100vw;
   padding: 2rem 2.5rem;
   margin-top: 2.5rem;
-  color: #273333;
+  color: $neutral-40;
 
   @media (min-width: 1056px) {
     margin-top: 4.5rem;
@@ -84,12 +86,12 @@
   height: 2.5rem;
   border-radius: 2rem;
   border: 1px solid #dee1e1;
-  padding-left: 1rem;
+  padding-left: 6%;
+  padding-bottom: 0.2rem;
 
   @media (min-width: 1056px) {
     width: calc(100% - 8rem);
     height: 3.5rem;
-    padding-left: 1.5rem;
   }
 }
 
@@ -99,7 +101,6 @@
   font-size: 1rem;
   position: relative;
   top: 1px;
-  left: 2rem;
 
   @media (min-width: 1056px) {
     font-size: 1.25rem;
@@ -108,9 +109,13 @@
 
 .hero__search-bar-img {
   position: absolute;
-  left: 1rem;
+  left: 1%;
   top: 0.5rem;
   height: 1.5rem;
+
+  @media (min-width: 672px) {
+    left: 1rem;
+  }
 
   @media (min-width: 1056px) {
     height: 2.5rem;
