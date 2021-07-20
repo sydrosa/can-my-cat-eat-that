@@ -99,7 +99,7 @@ const CardGroup = ({ data, listView, toxicity }) => {
                       details={card.details}
                       name={card.names.common}
                       scientificName={card.names.scientific}
-                      img={card.image}
+                      img={`/can-my-cat-eat-that${card.image}`}
                       imgAlt={`image of ${card.names.common} plant`}
                       toxicity={card.toxicity}
                     />

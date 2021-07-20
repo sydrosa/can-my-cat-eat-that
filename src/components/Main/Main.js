@@ -14,6 +14,8 @@ const Main = ({ searchInput }) => {
   const [viewOptions, setViewOptions] = useState("card-view");
   const [viewToxicity, setViewToxicity] = useState("");
 
+  const preFix = 'can-my-cat-eat-that/'
+
   const handleChange = (e) => {
     //   console.log(plants.filter((plant) => plant))
     setViewToxicity(e.target.value);
@@ -25,7 +27,7 @@ const Main = ({ searchInput }) => {
   };
 
   useEffect(() => {
-    fetch("/data/plants.json", {
+    fetch(`${preFix}data/plants.json`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",

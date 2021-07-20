@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import cx from "classnames";
 import { ReactComponent as Heart } from "../../assets/images/heart.svg";
 
@@ -10,12 +10,13 @@ const Card = ({
   name,
   scientificName,
   details,
-  favorite,
+  //   favorite,
   toxicity,
   list,
   onClick,
 }) => {
-  // const [favorite, setFavorite] = useState([]);
+  const [favorited, setFavorited] = useState(false);
+  const [favorites, setFavorites] = useState([]);
 
   const truncateString = (str, num) => {
     if (str.length > num) {
@@ -26,27 +27,37 @@ const Card = ({
   };
 
   const handleClick = (e) => {
-    console.log(e.target.classList.contains("selected"));
-    const faveClasses = e.target.classList;
-    faveClasses.contains("selected")
-      ? faveClasses.remove("selected")
-      : faveClasses.add("selected");
+    // console.log(e.target);
+    setFavorited(!favorited);
+    updateClassName(e.target);
+    // favorite ? tag.classList.add("selected") : tag.classList.remove("selected")
+
+    // const faveClasses = e.target.classList;
+    // faveClasses.contains("selected")
+    //   ? faveClasses.remove("selected")
+    //   : faveClasses.add("selected");
   };
+
+  const updateClassName = (tag) => {
+    favorited
+      ? tag.classList.add("selected")
+      : tag.classList.remove("selected");
+  };
+
+  useEffect(() => {
+    console.log(favorited);
+  }, [favorited]);
 
   return (
     <div>
-      <li
-        className={cx("card", { "card--list-item": list })}
-        tabIndex="0"
-        onClick={onClick}
-        onKeyPress={onClick}
-      >
+      <li className={cx("card", { "card--list-item": list })} tabIndex="0">
         <div className={cx({ "flex card__wrapper": list })}>
           <img
             className={cx("card__img", { "card__list-img": list })}
             src={`${img}`}
-            // src={require(`${img}`)}
             alt={imgAlt}
+            onClick={onClick}
+            onKeyPress={onClick}
           />
           {list && (
             <div className="card__list-header">
@@ -68,7 +79,7 @@ const Card = ({
                 className="tag--favorite"
                 onClick={(e) => handleClick(e)}
               />
-             {list && <span className="tag--favorite-text">Favorite</span>} 
+              {list && <span className="tag--favorite-text">Favorite</span>}
             </div>
           )}
         </div>
@@ -77,9 +88,9 @@ const Card = ({
             <p className="card__list-description">
               {truncateString(details, 135)}
             </p>
-            <div className={cx("tag__wrapper", {"favorite": !list})}>
+            <div className={cx("tag__wrapper", { favorite: !list })}>
               <Heart
-                className="tag--favorite"
+                className={cx("tag--favorite")}
                 onClick={(e) => handleClick(e)}
               />
               <span className="tag--favorite-text">Favorite</span>

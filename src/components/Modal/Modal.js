@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import "./modal.scss";
 
 const Modal = ({ onOpen, onClose, plant }) => {
-    
+
   const modalVariant = {
     initial: { opacity: 0 },
     isOpen: { opacity: 1 },
@@ -29,7 +29,7 @@ const Modal = ({ onOpen, onClose, plant }) => {
           <motion.div className="modal" variants={containerVariant}>
             <img
               className="modal__img"
-              src={plant.image}
+              src={`/can-my-cat-eat-that${plant.image}`}
               alt={`${plant.names.common} plant`}
             />
             <div className="modal__content">

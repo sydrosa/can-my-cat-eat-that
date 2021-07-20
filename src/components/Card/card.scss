@@ -4,7 +4,7 @@
   background-color: #fff;
   border-radius: 8px;
   color: #273333;
-  cursor: pointer;
+//   cursor: pointer;
   position: relative;
 }
 
@@ -23,7 +23,7 @@
 
   @media (min-width: 1056px) {
     grid-template-columns: 11.25rem 7.5rem 1fr 6.375rem;
-    grid-template-areas: "details tag description favorite";
+    // grid-template-areas: "details tag description favorite";
   }
 }
 
@@ -41,6 +41,7 @@
   height: calc(20rem - 4rem);
   object-position: center center;
   border-radius: 8px 8px 0 0;
+  cursor: pointer;
 }
 
 .card__list-img {

@@ -13,12 +13,12 @@ const App = () => {
   };
 
   return (
-    <Router>
+    <Router basename="/can-my-cat-eat-that">
       <div>
         <PageHeader />
         <Hero setProp={setProp} />
         <main>
-          <Route exact path="/can-my-cat-eat-that">
+          <Route exact path="/">
             <Main searchInput={searchInput} />
           </Route>
         </main>
