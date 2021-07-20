@@ -107,6 +107,14 @@
   }
 }
 
+.hero__search-bar input[type="text"] {
+  font-size: 1rem;
+
+  @media (min-width: 1056px) {
+    font-size: 1.25rem;
+  }
+}
+
 .hero__search-bar-img {
   position: absolute;
   left: 1%;
