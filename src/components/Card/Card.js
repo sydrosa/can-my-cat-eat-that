@@ -37,7 +37,11 @@ const Card = ({
 
   return (
     <div>
-      <li className={cx("card", { "card--list-item": list })}>
+      <li
+        className={cx("card", { "card--list-item": list })}
+        onKeyPress={onClick}
+        tabIndex="0"
+      >
         <div
           className={cx(
             { "flex card__wrapper": list },
@@ -49,15 +53,12 @@ const Card = ({
             src={`${img}`}
             alt={imgAlt}
             onClick={onClick}
-            onKeyPress={onClick}
-            tabIndex="0"
           />
           {list && (
             <div className="card__list-header">
               <button
                 className="card__title card__title--list"
                 onClick={onClick}
-                onKeyPress={onClick}
               >
                 {name}
               </button>
