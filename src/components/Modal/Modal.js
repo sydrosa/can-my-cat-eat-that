@@ -82,6 +82,11 @@ const Modal = ({ onOpen, onClose, plant }) => {
                       <li>{plant.toxicity.property}</li>
                       <li>{plant.toxicity.symptoms}</li>
                     </ul>
+                    <p className="modal-section__warning">
+                      If you suspect your pet may have ingested a potentially
+                      toxic substance, contact your local veterinarian as soon
+                      as possible.
+                    </p>
                   </section>
                 )}
                 <section className="modal-section modal-section--no-border modal-section__container">
